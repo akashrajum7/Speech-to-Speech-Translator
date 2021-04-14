@@ -10,7 +10,7 @@ from google_apis import text_to_speech, transcribe_speech, translate_text
 
 lib_dir = os.path.join(os.getcwd(), "./tensorflow")
 sys.path.append(lib_dir)
-from predict import predict
+# from predict import predict
 
 
 def prolong_audio(fname, expected_duration):
@@ -41,8 +41,10 @@ def index():
         prolong_audio(filename, 3)
 
         # detecting the language in audio 
-        detected_lang, probabilities = predict(filename)
-        probabilities = ' '.join(str(format(elem, '.4f')) for elem in probabilities)
+        # detected_lang, probabilities = predict(filename)
+        detected_lang = 'hindi'
+        # probabilities = ' '.join(str(format(elem, '.4f')) for elem in probabilities)
+        probabilities = ' '
         flag = 'static/images/{}.png'.format(detected_lang)
 
         return jsonify(flag=flag, detected_lang=detected_lang, probabilities=probabilities, filename=filename)

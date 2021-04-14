@@ -12,7 +12,9 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./gcloud_account.json"
 
 lang_codes = {'croatian': 'hr-HR',
               'french'  : 'fr-FR',
-              'spanish' : 'es-ES'}
+              'spanish' : 'es-ES',
+              'english': 'en-US',
+              'hindi': 'hi-IN'}
 
 def transcribe_speech(speech_file, detected_lang): 
     language_code = lang_codes[detected_lang]
@@ -53,7 +55,7 @@ def translate_text(text, target_language='en'):
     return html.unescape(translation['translatedText'])
 
 
-def text_to_speech(text, filename='output.mp3', language_code='en-GB'):
+def text_to_speech(text, filename='output.mp3', language_code='en-US'):
     # Instantiates a client
     client = texttospeech.TextToSpeechClient()
 
